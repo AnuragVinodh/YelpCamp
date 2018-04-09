@@ -1,0 +1,10 @@
+<% include ./partials/header %>
+<h1>LOG IN</h1>
+<div class = "container">
+    <form action = "/login" method="POST">
+        <input type = "text" name = "username" placeholder = "Username" class = "form-control">
+        <input type = "password" name = "password" placeholder = "Password" class = "form-control">
+        <button class = "btn btn-outline-success btn-block" value = "login">Log In</button>
+    </form>  
+</div>
+<% include ./partials/footer %>

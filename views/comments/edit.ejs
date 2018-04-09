@@ -1,0 +1,21 @@
+<% include ../partials/header %>
+<div class = "container" style = "margin-top : 100px">
+    
+    <div class = "container">
+        <h2>Edit Commnet for the <%= value.name %> post by <%= reqcomment.author.username %> </h2>
+        <form action = "/campgrounds/<%=value._id%>/comments/<%=reqcomment._id%>?_method=PUT" method = "POST" >
+            
+            <div class="input-group input-group-lg">
+                <textarea class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name = "comment[text]" placeholder = "Enter your comment here"><%=reqcomment.text%></textarea>
+            </div>
+ 
+            <input type = "submit"  class="btn btn-outline-success btn-block"style = "margin-top: 5px;">
+            <p style = "margin-top: 5px;">
+                <a href = "/campgrounds/<%=value._id%>" class="btn btn-outline-Danger btn-block">Exit and Return</a>
+            </p>
+            
+        </form>
+    </div>    
+</div>
+
+<% include ../partials/footer %>

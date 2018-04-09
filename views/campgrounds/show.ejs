@@ -1,0 +1,68 @@
+<% include ../partials/header %>
+<div class= "container" >
+    <div class = "row">
+        <div class = "col-md-3">
+            <p calss = "">YELP CAMP</p>
+            <div class = "list-group">
+                <li class = "list-group-item active">DATA 1</li>
+                <li class = "list-group-item">DATA 2</li>
+                <li class = "list-group-item">DATA 3</li>
+            </div>
+        </div>
+        <div class = "col-md-9">
+            <div class = "card"> 
+                <img class ="card-img-top" src="<%= value.img %>">
+                <div class = "card-body">
+                     <h3><%= value.name %>
+                     <span class = "float-right">9.00$/day</span>
+                     </h3>
+                    <p class = "card-text">
+                        <%= value.description %>
+                    </p>
+                    <p> <em>submitted by <%= value.author.username %></em></p>
+                </div>
+            </div>
+           <div class = "jumbotron">
+                <div>
+                    <a class = "btn btn-outline-info btn-sm" href = "/campgrounds/<%=value._id%>/comments/new"> Add new comment </a>
+                    <% if(currentUser && value.author.id.equals(currentUser._id)) { %>
+                    <a class = "btn btn-outline-warning btn-sm" href = "/campgrounds/<%=value._id%>/edit"> Update </a>
+                    <form action = "/campgrounds/<%=value._id%>?_method=DELETE" style = "float: left" method = "POST">  
+                        <button class = "btn btn-outline-danger btn-sm" > Delete</button>
+                    </form>
+                    <% } %>
+                    <a class = "btn btn-outline-dark btn-sm" href = "/campgrounds"> Return Back </a>
+                </div>
+                <% if(value.comments[0] != null){ %>
+                <div class = "list-group">
+                    <% value.comments.forEach(function(comment){ %>
+                        <div class = "list-group-item">
+                            <div class = "row">
+                                <div class= "col-md-8"> <strong> <%= comment.author.username %> </strong> </div>
+                                <div class =" col-md-4" style = "padding-left: 130px; padding-right: 2px;">
+                                    <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+                                        <a class = "btn btn-outline-warning btn-sm" href = "/campgrounds/<%=value._id%>/comments/<%=comment._id%>/edit">Edit</a> 
+                                        <form class = "form-inline" style = "float:left; padding-right: 3px;" action = "/campgrounds/<%=value._id%>/comments/<%=comment._id%>?_method=DELETE" method ="POST">
+                                            <button class = "btn btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class= "col-md-8"><%= comment.text %></div>
+                                <div class = "col-md-4"><p class = "float-right"><strong> on </strong> <%= comment.created.toDateString() %></p></div>
+                            </div>
+                        </div>
+                    <%  }); %>
+                </div>
+              <% } else { %>
+                  <div class = "list-group-item"> <p> No Comments Available </p> </div>
+              <% } %>
+           </div> 
+        </div>
+    </div>   
+</div>
+
+  
+
+<% include ../partials/footer %>

@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class = "container" style = "padding-top: 50px">
+    <h1 style = "text-align: center;">Update your Campground here</h1>
+
+    <form action = "/campgrounds/<%= value._id%>?_method=PUT" method = "POST">
+         <div class = "container" style = "width : 70%;">   
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "campground[name]" value = "<%= value.name%>">
+            </div>
+                  
+                  
+            <div class="input-group mb-3" >
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Image URL</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "campground[img]" value = "<%= value.img%>">
+            </div>
+            <div class="input-group input-group-lg">
+              <textarea class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name = "campground[description]" placeholder = "Enter your description here"><%= value.description%></textarea>
+           </div>
+            <input type = "submit"  class="btn btn-outline-success btn-block"style = "margin-top: 5px;">
+            <p style = "margin-top: 5px;">
+                <a href = "/campgrounds/<%= value._id%>" class="btn btn-outline-Danger btn-block">Exit and Return</a>
+            </p>
+        </div>
+    </form>
+   
+</div>
+
+
+<% include ../partials/footer %>

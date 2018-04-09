@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+<div class = "container" style = "padding-top: 50px">
+    <h1 style = "text-align: center;">Register a new Campground</h1>
+
+    <form action = "/campgrounds" method = "POST">
+         <div class = "container" style = "width : 70%;">   
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "name">
+            </div>
+                  
+                  
+            <div class="input-group mb-3" >
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Image URL</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name = "image">
+            </div>
+            <div class="input-group input-group-lg">
+              <textarea class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" name = "des" placeholder = "Enter your description here"></textarea>
+           </div>
+            <input type = "submit"  class="btn btn-outline-success btn-block"style = "margin-top: 5px;">
+            <p style = "margin-top: 5px;">
+                <a href = "/campgrounds" class="btn btn-outline-Danger btn-block">Exit and Return</a>
+            </p>
+        </div>
+    </form>
+   
+</div>
+
+
+
+
+<% include ../partials/footer %>

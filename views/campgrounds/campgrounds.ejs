@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<div class = "container" >
+   
+        <header class = "jumbotron">
+            <h1>Campgrounds</h1>
+            <p>Take a look at our amazing collection of Campgrounds from around the world</p>
+            <p>
+              <a href = "/campgrounds/new" class="btn btn-outline-dark">Register a new Campground</a>
+            </p>
+        </header>
+
+    <div class = "row text-center" style = "display: flex; flex-wrap: wrap;">
+        <!--<div class = "container">-->
+        <% data.forEach(function(value){ %>
+            <div class = "col-lg-4 col-md-6 col-12" >
+              <div class = "container" >
+                    <!--<img class="img-thumbnail" src = "//<//%= value.img %>" >-->
+                 <div class="card">
+                  <img class="card-img-top" src="<%= value.img %>" alt="Card image cap" style = "height: 30%; width: 100%" >
+                  <div class="card-body">
+                    <p class="card-text"><h3><%= value.name %></h3></p>
+                    <p><a href = "campgrounds/<%= value._id %>" class = "btn btn-outline-primary">More info</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% }) %>
+    </div>
+    <!--</div>-->
+</div>
+<style>
+    .col-sm-6{
+        /*margin-left: 80px;*/
+    }
+</style>
+
+<% include ../partials/footer %>
+
+<!--style = 'margin-right: 78px ; margin-left: 17px;margin-bottom: 5px;'--> 
